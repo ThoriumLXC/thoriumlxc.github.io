@@ -24,7 +24,7 @@
     
     
       
-        <title>vMaNGOS - ThoriumLXC</title>
+        <title>cMaNGOS Classic - ThoriumLXC</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vmangos" class="md-skip">
+        <a href="#cmangos-classic" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              vMaNGOS
+              cMaNGOS Classic
             
           </span>
         </div>
@@ -3418,10 +3418,10 @@
                   
 
 
-<h1 id="vmangos">vMaNGOS</h1>
+<h1 id="cmangos-classic">cMaNGOS Classic</h1>
 <figure>
-  <img alt="vMaNGOS" src="../../assets/images/vmangos.png" width="300" />
-  <figcaption>vMaNGOS, devoted to vanilla progression.</figcaption>
+  <img alt="cMaNGOS Classic" src="../../assets/images/classic.png" width="300" />
+  <figcaption>cMaNGOS Classic, also known as Continued MaNGOS.</figcaption>
 </figure>
 <h2 id="getting-started">Getting Started</h2>
 <p>This section will walk you through the process of setting up your cMaNGOS server using Docker &amp; Docker Compose. All steps within this guide have separate pages that go into more detail about how to perform the processes described in them. If you are having difficulty, follow the information (<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg></span>) guide links for a more indepth process.</p>
@@ -3461,12 +3461,12 @@
 </ul>
 <p>If you prefer to use Git, you can also download the repository using <code>git clone</code> instead of downloading &amp; extracting.</p>
 <h2 id="preparing-the-client-data">Preparing the Client Data</h2>
-<p>Open a terminal within the folder containing the game client, then run the following command to extract the client data into a new folder:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>ghcr.io/thoriumlxc/cmangos-classic:2025.02.17
+<p>Open a terminal within the folder containing the game client, then run the following command to extract the client data into the folder <code>client-data</code>:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>docker.io/thoriumlxc/cmangos-classic:extractor-2025.02.18
 </code></pre></div>
 <details class="example">
 <summary>Extracting the data</summary>
-<p><img alt="extracting the data from the game client" src="../../assets/images/demo/building.gif" /></p>
+<p><img alt="extracting the data from the game client" src="../../assets/images/demo/client-data.gif" /></p>
 </details>
 <p>When this is completed, you'll have a folder with the client data named <code>client-data</code>. We'll now load this data into a docker volume, first create the volume below:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>create<span class="w"> </span>volume<span class="w"> </span>cmangos-classic-map-data

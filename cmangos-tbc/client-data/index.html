@@ -3385,51 +3385,90 @@
 </div>
 <h2 id="extracting-client-data">Extracting Client Data</h2>
 <p>Client data is extracted from the game client and provided to the emulator server. To extract this data, you can use the extractor tools included in the container image, which analyzes the game client to generate the necessary data files for the emulator. Assuming you are in the folder containing the game client, open a terminal and run the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># TODO: Fix this</span>
-docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>ghcr.io/thoriumlxc/cmangos-classic:2025.02.17
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>docker.io/thoriumlxc/cmangos-tbc:extractor-2025.02.18
 </code></pre></div>
+<details class="example">
+<summary>Extracting the data</summary>
+<p><img alt="extracting the data from the game client" src="../../assets/images/demo/client-data.gif" /></p>
+</details>
 <p>This command can be explained as:</p>
 <ul>
 <li><code>docker run</code> - Starts a new container.</li>
 <li><code>--rm</code> - Automatically deletes the container after it finishes running.</li>
 <li><code>-v .:/client</code> - Shares the current folder (on your computer) with the container at the <code>/client</code> location. This is the folder containing the game client.</li>
 <li><code>-v ./client-data:/output</code> - Shares the client-data folder (on your computer) with the container at the <code>/output</code> location. The extracted client data will be written here.</li>
-<li><code>ghcr.io/thoriumlxc/cmangos-classic:2025.02.17</code> - Specifies the container image to use, which contains the software for extracting client data.</li>
+<li><code>ghcr.io/thoriumlxc/cmangos-tbc:2025.02.17</code> - Specifies the container image to use, which contains the software for extracting client data.</li>
 </ul>
+<p>The extract files should look roughly like the following:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>*.m2</code> means that the files in the folder are M2 files. Similar for <code>*.wmo</code>. The below is just to offer a rough idea of what kind of <em>file extensions</em> exist in that extracted folder. The number of files is an approximate.</p>
+</div>
+<div class="highlight"><pre><span></span><code>.
+├── MaNGOSExtractor.log
+├── MaNGOSExtractor_detailed.log
+├── Buildings
+│   ├── *.m2
+│   ├── *.wmo
+│   ├── dir_bin
+│   └── temp_gameobject_models
+├── Cameras
+│   ├── *.m2
+│   └── *.m2
+├── dbc
+│   ├── *.dbc
+│   └── *.dbc
+├── maps
+│   ├── *.map
+│   └── *.map
+├── mmaps
+│   ├── *.mmap
+│   ├── *.mmtile
+│   └── *.mmtile
+└── vmaps
+    ├── *.vmtree
+    ├── *.vmtile
+    ├── *.wmo.vmo
+    ├── *.m2.vmo
+    ├── *.m2
+    └── temp_gameobject_models
+
+6 directories, 14610 files
+</code></pre></div>
 <h2 id="client-data-in-docker">Client Data in Docker</h2>
 <p>Client data can be stored in named volumes to simplify management. Named volumes act like shared folders you can reference by name, making it easy to extract data once without worrying about specific file paths when mounting the data for the servers. This is especially useful when frequently restarting or recreating the server.</p>
-<p>You can create a named volume called <code>cmangos-classic-map-data</code> by running the following command:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>create<span class="w"> </span>volume<span class="w"> </span>cmangos-classic-map-data
+<p>You can create a named volume called <code>cmangos-tbc-map-data</code> by running the following command:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>create<span class="w"> </span>volume<span class="w"> </span>cmangos-tbc-map-data
 </code></pre></div>
 <p>The extracted game client data can now be loaded into the named volume by running the following command:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-classic-map-data:/data<span class="w"> </span>-v<span class="w"> </span>./client-data:/input<span class="w"> </span>alpine<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cp -a /input/. /data&quot;</span>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-tbc-map-data:/data<span class="w"> </span>-v<span class="w"> </span>./client-data:/input<span class="w"> </span>alpine<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cp -a /input/. /data&quot;</span>
 </code></pre></div>
 <p>This command can be explained as:</p>
 <ul>
 <li><code>docker run</code> - Starts a new container.</li>
 <li><code>--rm</code> - Automatically deletes the container after it finishes running.</li>
-<li><code>-v cmangos-classic-map-data:/data</code> - Shares the named volume <code>cmangos-classic-map-data</code> with the container at the <code>/data</code> location. The extracted client data will be copied into this volume.</li>
+<li><code>-v cmangos-tbc-map-data:/data</code> - Shares the named volume <code>cmangos-tbc-map-data</code> with the container at the <code>/data</code> location. The extracted client data will be copied into this volume.</li>
 <li><code>-v ./client-data:/input</code> - Shares the current folder (on your computer) with the container at the <code>/input</code> location. This is the folder containing the extracted client data.</li>
 <li><code>alpine</code> - Specifies the Docker image to use; Alpine is a very lightweight Linux distribution.</li>
 <li><code>sh -c "cp -a /input/. /data"</code> - Runs a shell command inside the container that copies all files (and directories) from <code>/input</code> (your extracted client data) to <code>/data</code> (the named volume), preserving file properties.</li>
 </ul>
 <p>In short, the command sets up a temporary container to transfer client data files from your local folder into the named docker volume, and then it cleans up the container automatically when done.</p>
-<p>You can then reference this named volume (like a shared folder) called <code>cmangos-classic-map-data</code> in a Docker Compose file. This will be expected by the default Docker Compose configuration files, which is done like this:</p>
+<p>You can then reference this named volume (like a shared folder) called <code>cmangos-tbc-map-data</code> in a Docker Compose file. This will be expected by the default Docker Compose configuration files, which is done like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">mangosd</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/thoriumlxc/cmangos-classic:latest</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/thoriumlxc/cmangos-tbc:latest</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="c1"># This uses the named volume &#39;cmangos-classic-map-data&#39;, and makes it</span>
+<span class="w">      </span><span class="c1"># This uses the named volume &#39;cmangos-tbc-map-data&#39;, and makes it</span>
 <span class="w">      </span><span class="c1"># available to the emulator server at the directory &#39;/opt/mangos/storage/data&#39;</span>
 <span class="w">      </span><span class="c1">#</span>
 <span class="w">      </span><span class="c1"># The :ro at the end means to only allow the emulator server to read from this</span>
 <span class="w">      </span><span class="c1"># named volume. No writing allowed.</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmangos-classic-map-data:/opt/mangos/storage/data:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmangos-tbc-map-data:/opt/mangos/storage/data:ro</span>
 
 <span class="nt">volumes</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># This tells Docker Compose that a named volume called &#39;cmangos-classic-map-data&#39;</span>
+<span class="w">  </span><span class="c1"># This tells Docker Compose that a named volume called &#39;cmangos-tbc-map-data&#39;</span>
 <span class="w">  </span><span class="c1"># is expected, but is created outside of this configuration file.</span>
-<span class="w">  </span><span class="nt">cmangos-classic-map-data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">cmangos-tbc-map-data</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <h3 id="client-data-from-container-image">Client Data from Container Image</h3>
@@ -3438,21 +3477,21 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <p>If you’re not familiar with Docker, this approach is discouraged.</p>
 </div>
 <p>Alternatively, you may receive already extracted client data in the form of a container image. This is a container image that when run will copy the client data files into a directory or named volume. This container works by running a decompression program (7zip, unzip), writing the extracted files to a specified directory.</p>
-<p>These images may be downloaded using <code>docker pull</code>, or downloaded by other means and loaded into docker by running the command: <code>docker load &lt; cmangos-classic-extracted-client-data.tar</code>.</p>
-<p>Running one of these container images to extract files to a named volume called <code>cmangos-classic-map-data</code> works like so:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-classic-map-data:/output<span class="w"> </span>cmangos-classic-extracted-client-data
+<p>These images may be downloaded using <code>docker pull</code>, or downloaded by other means and loaded into docker by running the command: <code>docker load &lt; cmangos-tbc-extracted-client-data.tar</code>.</p>
+<p>Running one of these container images to extract files to a named volume called <code>cmangos-tbc-map-data</code> works like so:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-tbc-map-data:/output<span class="w"> </span>cmangos-tbc-extracted-client-data
 </code></pre></div>
 <details class="tip">
 <summary>Tip</summary>
 <p>Alternatively you can extract these files to a folder on your machine, by running the modified variant of the above command as:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>cmangos-classic-extracted-client-data
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>cmangos-tbc-extracted-client-data
 </code></pre></div>
 </details>
 <p>You may persist your own extracted client data by creating one of these images, but that is outside the scope of this guide.</p>
 <p>Should you do so, you will be able to create &amp; populate the named volume using the following commands:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>load<span class="w"> </span>&lt;<span class="w"> </span>cmangos-classic-map-data.tar.gz
-docker<span class="w"> </span>create<span class="w"> </span>volume<span class="w"> </span>cmangos-classic-map-data
-docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-classic-map-data:/output<span class="w"> </span>cmangos-classic-map-data
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>load<span class="w"> </span>&lt;<span class="w"> </span>cmangos-tbc-map-data.tar.gz
+docker<span class="w"> </span>create<span class="w"> </span>volume<span class="w"> </span>cmangos-tbc-map-data
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-tbc-map-data:/output<span class="w"> </span>cmangos-tbc-map-data
 </code></pre></div>
 
 

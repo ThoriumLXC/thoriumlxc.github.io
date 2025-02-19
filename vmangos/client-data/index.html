@@ -3385,9 +3385,12 @@
 </div>
 <h2 id="extracting-client-data">Extracting Client Data</h2>
 <p>Client data is extracted from the game client and provided to the emulator server. To extract this data, you can use the extractor tools included in the container image, which analyzes the game client to generate the necessary data files for the emulator. Assuming you are in the folder containing the game client, open a terminal and run the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># TODO: Fix this</span>
-docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>ghcr.io/thoriumlxc/cmangos-classic:2025.02.17
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>docker.io/thoriumlxc/cmangos-classic:extractor-2025.02.18
 </code></pre></div>
+<details class="example">
+<summary>Extracting the data</summary>
+<p><img alt="extracting the data from the game client" src="../../assets/images/demo/client-data.gif" /></p>
+</details>
 <p>This command can be explained as:</p>
 <ul>
 <li><code>docker run</code> - Starts a new container.</li>
@@ -3396,6 +3399,42 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <li><code>-v ./client-data:/output</code> - Shares the client-data folder (on your computer) with the container at the <code>/output</code> location. The extracted client data will be written here.</li>
 <li><code>ghcr.io/thoriumlxc/cmangos-classic:2025.02.17</code> - Specifies the container image to use, which contains the software for extracting client data.</li>
 </ul>
+<p>The extract files should look roughly like the following:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>*.m2</code> means that the files in the folder are M2 files. Similar for <code>*.wmo</code>. The below is just to offer a rough idea of what kind of <em>file extensions</em> exist in that extracted folder. The number of files is an approximate.</p>
+</div>
+<div class="highlight"><pre><span></span><code>.
+├── MaNGOSExtractor.log
+├── MaNGOSExtractor_detailed.log
+├── Buildings
+│   ├── *.m2
+│   ├── *.wmo
+│   ├── dir_bin
+│   └── temp_gameobject_models
+├── Cameras
+│   ├── *.m2
+│   └── *.m2
+├── dbc
+│   ├── *.dbc
+│   └── *.dbc
+├── maps
+│   ├── *.map
+│   └── *.map
+├── mmaps
+│   ├── *.mmap
+│   ├── *.mmtile
+│   └── *.mmtile
+└── vmaps
+    ├── *.vmtree
+    ├── *.vmtile
+    ├── *.wmo.vmo
+    ├── *.m2.vmo
+    ├── *.m2
+    └── temp_gameobject_models
+
+6 directories, 14610 files
+</code></pre></div>
 <h2 id="client-data-in-docker">Client Data in Docker</h2>
 <p>Client data can be stored in named volumes to simplify management. Named volumes act like shared folders you can reference by name, making it easy to extract data once without worrying about specific file paths when mounting the data for the servers. This is especially useful when frequently restarting or recreating the server.</p>
 <p>You can create a named volume called <code>cmangos-classic-map-data</code> by running the following command:</p>
