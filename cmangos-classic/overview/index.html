@@ -3488,11 +3488,16 @@
 <div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>ps
 </code></pre></div>
 <p>You should see services like <code>mangosd</code> and <code>realmd</code> listed as "Up.", with a response that looks like the following:</p>
-<div class="highlight"><pre><span></span><code># TODO: Placeholder
-asdfasdf
-asdf
-asdfasdf
+<div class="highlight"><pre><span></span><code>CONTAINER ID   IMAGE                                           COMMAND                  CREATED         STATUS              PORTS                    NAMES
+f31eaa44afe8   thoriumlxc/cmangos-classic:default-2025.02.18   &quot;realmd&quot;                 2 minutes ago   Up About a minute   0.0.0.0:3724-&gt;3724/tcp   cmangos-classic-main-realmd-1
+7c3674a872fa   thoriumlxc/cmangos-classic:default-2025.02.18   &quot;mangosd&quot;                2 minutes ago   Up About a minute   0.0.0.0:8085-&gt;8085/tcp   cmangos-classic-main-mangosd-1
+7b9c31f7aaa4   phpmyadmin                                      &quot;/docker-entrypoint.…&quot;   2 minutes ago   Up 2 minutes        0.0.0.0:9090-&gt;80/tcp     cmangos-classic-main-phpmyadmin-1
+f63b92a4162b   thoriumlxc/cmangos-classicdb:2025.02.18         &quot;docker-entrypoint.s…&quot;   2 minutes ago   Up 2 minutes        3306/tcp                 cmangos-classic-main-database-1
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Containers inherit their names from the folder they are running in. If you kept the name from the download, its likely similar to 'cmangos-classic-main'</p>
+</div>
 <p>You may need to wait 5 to 10 minutes for any bots or supporting systems to come online, for which you can review the <a href="../../thoriumlxc/compose/">logs using Docker compose</a>.</p>
 <h2 id="connecting-to-your-server">Connecting to Your Server</h2>
 <p>Standard practice for MaNGOS compatible game clients is a <code>realmlist.wtf</code> file in the Tool Command Language which includes a <code>realmlist</code> property that points to the IP Address (or domain name) of the login server (<code>realmd</code>). You'll need to modify this file to match the IP address of the machine that is running the server. If you are running it on the same machine as the game client, then you can set it as <code>127.0.0.1</code>. This will look like the following:</p>
