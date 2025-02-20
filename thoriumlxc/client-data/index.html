@@ -3426,7 +3426,7 @@
 <h2 id="client-data-in-docker">Client Data in Docker</h2>
 <p>In Docker, client data can be stored in named volumes, simplifying management and transfer. This approach makes it easy to share the extracted data between different systems or Docker containers.</p>
 <p>A named volume called <code>map-data</code> can be created by running the following command:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>create<span class="w"> </span>volume<span class="w"> </span>map-data
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>map-data
 </code></pre></div>
 <p>This allows referencing all of the client data to a container using the name <code>map-data</code>. This can be done like so:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
@@ -3463,7 +3463,7 @@
 </code></pre></div>
 <p>These pre-extracted map data containers are not typically available for download on container registries. You are more likely to find them as <code>.tar.gz</code> files downloaded from other sources, which you can load into your Docker service like this:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>load<span class="w"> </span>&lt;<span class="w"> </span>cmangos-classic-map-data.tar.gz
-docker<span class="w"> </span>create<span class="w"> </span>volume<span class="w"> </span>map-data
+docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>map-data
 docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>map-data:/output<span class="w"> </span>cmangos-classic-map-data
 </code></pre></div>
 

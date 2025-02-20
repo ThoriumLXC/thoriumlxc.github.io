@@ -3469,7 +3469,7 @@
 <p><img alt="extracting the data from the game client" src="../../assets/images/demo/client-data.gif" /></p>
 </details>
 <p>When this is completed, you'll have a folder with the client data named <code>client-data</code>. We'll now load this data into a docker volume, first create the volume below:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>create<span class="w"> </span>volume<span class="w"> </span>cmangos-classic-map-data
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>cmangos-classic-map-data
 </code></pre></div>
 <p>Now copy the extracted game client data into the named volume by running the following command:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-classic-map-data:/data<span class="w"> </span>-v<span class="w"> </span>./client-data:/input<span class="w"> </span>alpine<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cp -a /input/. /data&quot;</span>

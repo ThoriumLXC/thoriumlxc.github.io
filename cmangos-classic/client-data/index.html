@@ -3438,7 +3438,7 @@
 <h2 id="client-data-in-docker">Client Data in Docker</h2>
 <p>Client data can be stored in named volumes to simplify management. Named volumes act like shared folders you can reference by name, making it easy to extract data once without worrying about specific file paths when mounting the data for the servers. This is especially useful when frequently restarting or recreating the server.</p>
 <p>You can create a named volume called <code>cmangos-classic-map-data</code> by running the following command:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>create<span class="w"> </span>volume<span class="w"> </span>cmangos-classic-map-data
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>cmangos-classic-map-data
 </code></pre></div>
 <p>The extracted game client data can now be loaded into the named volume by running the following command:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-classic-map-data:/data<span class="w"> </span>-v<span class="w"> </span>./client-data:/input<span class="w"> </span>alpine<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cp -a /input/. /data&quot;</span>
@@ -3490,7 +3490,7 @@
 <p>You may persist your own extracted client data by creating one of these images, but that is outside the scope of this guide.</p>
 <p>Should you do so, you will be able to create &amp; populate the named volume using the following commands:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>load<span class="w"> </span>&lt;<span class="w"> </span>cmangos-classic-map-data.tar.gz
-docker<span class="w"> </span>create<span class="w"> </span>volume<span class="w"> </span>cmangos-classic-map-data
+docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>cmangos-classic-map-data
 docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-classic-map-data:/output<span class="w"> </span>cmangos-classic-map-data
 </code></pre></div>
 
