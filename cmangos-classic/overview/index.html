@@ -3446,7 +3446,7 @@
 <p>If you encounter difficulty in this process, review <a href="../../thoriumlxc/client-data/">the client-data overview</a>.</p>
 </details>
 <p>Open a terminal within the folder containing the <strong>game client</strong>, then run the following command to extract the client data into the folder <code>client-data</code>:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>docker.io/thoriumlxc/cmangos-classic:extractor-2025.02.18
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>docker.io/thoriumlxc/cmangos-classic:extractor-2025.02.23
 </code></pre></div>
 <details class="example">
 <summary>Extracting the data</summary>
@@ -3473,10 +3473,10 @@
 </code></pre></div>
 <p>You should see services like <code>mangosd</code> and <code>realmd</code> listed as "Up.", with a response that looks like the following, with the relevant column being the <code>Status</code>:</p>
 <div class="highlight"><pre><span></span><code>CONTAINER ID   IMAGE                                           COMMAND                  CREATED         STATUS              PORTS                    NAMES
-f31eaa44afe8   thoriumlxc/cmangos-classic:default-2025.02.18   &quot;realmd&quot;                 2 minutes ago   Up About a minute   0.0.0.0:3724-&gt;3724/tcp   cmangos-classic-main-realmd-1
-7c3674a872fa   thoriumlxc/cmangos-classic:default-2025.02.18   &quot;mangosd&quot;                2 minutes ago   Up About a minute   0.0.0.0:8085-&gt;8085/tcp   cmangos-classic-main-mangosd-1
+f31eaa44afe8   thoriumlxc/cmangos-classic:default-2025.02.23   &quot;realmd&quot;                 2 minutes ago   Up About a minute   0.0.0.0:3724-&gt;3724/tcp   cmangos-classic-main-realmd-1
+7c3674a872fa   thoriumlxc/cmangos-classic:default-2025.02.23   &quot;mangosd&quot;                2 minutes ago   Up About a minute   0.0.0.0:8085-&gt;8085/tcp   cmangos-classic-main-mangosd-1
 7b9c31f7aaa4   phpmyadmin                                      &quot;/docker-entrypoint.…&quot;   2 minutes ago   Up 2 minutes        0.0.0.0:9090-&gt;80/tcp     cmangos-classic-main-phpmyadmin-1
-f63b92a4162b   thoriumlxc/cmangos-classic:2025.02.18           &quot;docker-entrypoint.s…&quot;   2 minutes ago   Up 2 minutes        3306/tcp                 cmangos-classic-main-database-1
+f63b92a4162b   thoriumlxc/cmangos-classic:2025.02.23           &quot;docker-entrypoint.s…&quot;   2 minutes ago   Up 2 minutes        3306/tcp                 cmangos-classic-main-database-1
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>

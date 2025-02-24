@@ -3362,7 +3362,7 @@
 </div>
 <h2 id="extracting-client-data">Extracting Client Data</h2>
 <p>Client data is extracted from the game client and provided to the emulator server. To extract this data, you can use the extractor tools included in the container image, which analyzes the game client to generate the necessary data files for the emulator. Assuming you are in the folder containing the <strong>game client</strong>, open a terminal and run the following command:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>ghcr.io/thoriumlxc/vmangos:5875-extractor-2025.02.18
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>ghcr.io/thoriumlxc/vmangos:5875-extractor-2025.02.23
 </code></pre></div>
 <details class="example">
 <summary>Extracting the data</summary>
@@ -3374,7 +3374,7 @@
 <li><code>--rm</code> - Automatically deletes the container after it finishes running.</li>
 <li><code>-v .:/client</code> - Shares the current folder (on your computer) with the container at the <code>/client</code> location. This is the folder containing the <strong>game client</strong>.</li>
 <li><code>-v ./client-data:/output</code> - Shares the client-data folder (on your computer) with the container at the <code>/output</code> location. The extracted client data will be written here.</li>
-<li><code>ghcr.io/thoriumlxc/vmangos:5875-extractor-2025.02.18</code> - Specifies the container image to use, which contains the software for extracting client data.</li>
+<li><code>ghcr.io/thoriumlxc/vmangos:5875-extractor-2025.02.23</code> - Specifies the container image to use, which contains the software for extracting client data.</li>
 </ul>
 <p>The extract files should look roughly like the following:</p>
 <div class="admonition tip">
@@ -3433,7 +3433,7 @@
 <p>You can then reference this named volume (like a shared folder) called <code>vmangos-map-data</code> in a Docker Compose file. This will be expected by the default Docker Compose configuration files, which is done like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">mangosd</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/thoriumlxc/vmangos:2025.02.18</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/thoriumlxc/vmangos:2025.02.23</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="c1"># This uses the named volume &#39;vmangos-map-data&#39;, and makes it</span>
 <span class="w">      </span><span class="c1"># available to the emulator server at the directory &#39;/opt/mangos/storage/data&#39;</span>
