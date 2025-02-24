@@ -1113,8 +1113,6 @@
       
         
       
-        
-      
     
     
       
@@ -1493,8 +1491,6 @@
       
         
       
-        
-      
     
     
       
@@ -1514,7 +1510,7 @@
             
   
   <span class="md-ellipsis">
-    Bots
+    Building
     
   </span>
   
@@ -1524,107 +1520,6 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_5">
-            <span class="md-nav__icon md-icon"></span>
-            Bots
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../vmangos/bots/ahbot/" class="md-nav__link">
-        
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m1 22 1.5-5h7l1.5 5zm12 0 1.5-5h7l1.5 5zm-7-7 1.5-5h7l1.5 5zm17-8.95-3.86 1.09L18.05 11l-1.09-3.86-3.86-1.09 3.86-1.09 1.09-3.86 1.09 3.86z"/></svg>
-  
-  <span class="md-ellipsis">
-    AHBot
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../vmangos/bots/playerbots/" class="md-nav__link">
-        
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1m-1 3h-2v3H5v-3H3v-1h2v-2c0-2.76 2.24-5 5-5h4c2.76 0 5 2.24 5 5v2h2zM8.5 13.5l2.36 2.36-1.18 1.18-1.18-1.18-1.18 1.18-1.18-1.18zm7 0 2.36 2.36-1.18 1.18-1.18-1.18-1.18 1.18-1.18-1.18z"/></svg>
-  
-  <span class="md-ellipsis">
-    PlayerBots
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Building
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             Building
           </label>
@@ -3497,16 +3392,20 @@
 <p class="admonition-title">Tip</p>
 <p>This is an overview, if you are looking for a specific guide, navigate to the <a href="../overview/#emulator-project-container-images">emulator project page</a></p>
 </div>
-<p>To extract client data, you can use the extractor tools in conjunction with a game client to analyze the game world and generate the necessary client data. Assuming you are in the directory containing the <strong>game client</strong>, open a terminal and run the following command:</p>
+<p>To extract client data, you can use the extractor tools in conjunction with a game client to analyze the game world and generate the necessary client data. Assuming you are in the directory containing the <strong>game client</strong>, you would open a terminal and run a one of the extractor images, using a command like this:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a mock (placeholder/example) command, and will not work!</p>
+</div>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>thoriumlxc/placeholder-extractor
 </code></pre></div>
 <p>This command can be explained as:</p>
 <ul>
-<li><code>docker run</code> - Starts a new container.</li>
+<li><code>docker run</code> - Starts a new container (an isolated environment) from an image.</li>
 <li><code>--rm</code> - Automatically deletes the container after it finishes running.</li>
-<li><code>-v .:/client</code> - Shares the current folder (on your computer) with the container at the /client location.
-<code>-v ./client-data:/output</code> - Shares the client-data folder (on your computer) with the container at the /output location. The output will be written here.</li>
-<li><code>thoriumlxc/placeholder-extractor</code> - Specifies the Docker image to use, which contains the software for extracting VMAP data.</li>
+<li><code>-v .:/client</code> - Shares the current folder (on your computer) with the container at the <code>/client</code> location.</li>
+<li><code>-v ./client-data:/output</code> - Shares the <code>client-data</code> folder (on your computer) with the container at the <code>/output</code> location. The extracted client data will be written here.</li>
+<li><code>thoriumlxc/placeholder-extractor</code> - Specifies the Docker image to use, which contains the software for extracting the client data.</li>
 </ul>
 <h2 id="client-data-in-docker">Client Data in Docker</h2>
 <p>In Docker, client data can be stored in named volumes, simplifying management and transfer. This approach makes it easy to share the extracted data between different systems or Docker containers.</p>
@@ -3524,7 +3423,7 @@
 <span class="w">  </span><span class="nt">map-data</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-<p>You can load data from within a directory into a named volume by running the following command:</p>
+<p>You can load data from within a folder into a named volume by running the following command:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span>map-data:/data<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span>./client-data:/input<span class="w"> </span><span class="se">\</span>
@@ -3533,20 +3432,24 @@
 <p>This command can be explained as:</p>
 <ul>
 <li><code>docker run</code> - Starts a new container (an isolated environment) from an image.</li>
-<li><code>--rm</code> - Automatically removes the container when it finishes running, keeping your system tidy.</li>
+<li><code>--rm</code> - Automatically deletes the container after it finishes running.</li>
 <li><code>-v map-data:/data</code> - Mounts a Docker-managed volume called "map-data" to the container's /data folder, that will load data in.</li>
 <li><code>-v ./client-data:/input</code> - Mounts a local folder named "client-data" (from your extracted set) into the container at <code>/input</code>, allowing file sharing between your computer and the container.</li>
 <li><code>alpine</code> - Specifies the Docker image to use; Alpine is a very lightweight Linux distribution.</li>
 <li><code>sh -c "cp -a /input/. /data"</code> - Runs a shell command inside the container that copies all files (and directories) from <code>/input</code> (your local folder) to <code>/data</code> (the Docker volume), preserving file properties.</li>
 </ul>
-<p>In short, the command sets up a temporary container to transfer client data files from your local folder into a persistent Docker volume, and then it cleans up the container automatically when done.</p>
+<p>In short, the command sets up a temporary container to transfer client data files from your local folder into a Docker volume, and then it cleans up the container automatically when done.</p>
 <h3 id="client-data-from-container-image">Client Data from Container Image</h3>
-<p>Alternatively, you may receive the extracted client data from as a self-extracting container image. This container image works by including a decompression program (7zip, unzip) along with compress files, which it can extract into named volumes.</p>
+<p>Alternatively, you may receive the extracted client data from as a self-extracting container image. This container image works by including a decompression program (7zip, unzip) along with compressed client data, which it can extract into named volumes.</p>
 <p>These images may be downloaded using <code>docker pull</code>, or downloaded by other means and loaded into docker by running <code>docker load &lt; name-of-image.tar</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>ThoriumLXC does not make any images available with extracted client data.</p>
+</div>
 <p>Running one of these container images works like so:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>map-data:/output<span class="w"> </span>client-data-extractor
 </code></pre></div>
-<p>These pre-extracted map data containers are not typically available for download on container registries. You are more likely to find them as <code>.tar.gz</code> files downloaded from other sources, which you can load into your Docker service like this:</p>
+<p>These pre-extracted map data containers are not typically available for download on container registries. You are more likely to find them as <code>.tar.gz</code> files downloaded from other sources or created for backup purposes, which you can load into your Docker service like this:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>load<span class="w"> </span>&lt;<span class="w"> </span>cmangos-classic-map-data.tar.gz
 docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>map-data
 docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>map-data:/output<span class="w"> </span>cmangos-classic-map-data

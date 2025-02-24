@@ -1009,8 +1009,6 @@
       
         
       
-        
-      
     
     
       
@@ -1389,8 +1387,6 @@
       
         
       
-        
-      
     
     
       
@@ -1410,7 +1406,7 @@
             
   
   <span class="md-ellipsis">
-    Bots
+    Building
     
   </span>
   
@@ -1420,107 +1416,6 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_5">
-            <span class="md-nav__icon md-icon"></span>
-            Bots
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../vmangos/bots/ahbot/" class="md-nav__link">
-        
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m1 22 1.5-5h7l1.5 5zm12 0 1.5-5h7l1.5 5zm-7-7 1.5-5h7l1.5 5zm17-8.95-3.86 1.09L18.05 11l-1.09-3.86-3.86-1.09 3.86-1.09 1.09-3.86 1.09 3.86z"/></svg>
-  
-  <span class="md-ellipsis">
-    AHBot
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../vmangos/bots/playerbots/" class="md-nav__link">
-        
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1m-1 3h-2v3H5v-3H3v-1h2v-2c0-2.76 2.24-5 5-5h4c2.76 0 5 2.24 5 5v2h2zM8.5 13.5l2.36 2.36-1.18 1.18-1.18-1.18-1.18 1.18-1.18-1.18zm7 0 2.36 2.36-1.18 1.18-1.18-1.18-1.18 1.18-1.18-1.18z"/></svg>
-  
-  <span class="md-ellipsis">
-    PlayerBots
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Building
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             Building
           </label>
@@ -3470,7 +3365,7 @@
 </div>
 <h2 id="extracting-client-data">Extracting Client Data</h2>
 <p>Client data is extracted from the game client and provided to the emulator server. To extract this data, you can use the extractor tools included in the container image, which analyzes the game client to generate the necessary data files for the emulator. Assuming you are in the folder containing the <strong>game client</strong>, open a terminal and run the following command:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>docker.io/thoriumlxc/cmangos-classic:extractor-2025.02.18
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>.:/client<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>ghcr.io/thoriumlxc/cmangos-classic:extractor-2025.02.18
 </code></pre></div>
 <details class="example">
 <summary>Extracting the data</summary>
@@ -3541,7 +3436,7 @@
 <p>You can then reference this named volume (like a shared folder) called <code>cmangos-classic-map-data</code> in a Docker Compose file. This will be expected by the default Docker Compose configuration files, which is done like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">mangosd</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/thoriumlxc/cmangos-classic:latest</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/thoriumlxc/cmangos-classic:2025.02.17</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="c1"># This uses the named volume &#39;cmangos-classic-map-data&#39;, and makes it</span>
 <span class="w">      </span><span class="c1"># available to the emulator server at the directory &#39;/opt/mangos/storage/data&#39;</span>
