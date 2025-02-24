@@ -3377,7 +3377,7 @@
 <li><code>--rm</code> - Automatically deletes the container after it finishes running.</li>
 <li><code>-v .:/client</code> - Shares the current folder (on your computer) with the container at the <code>/client</code> location. This is the folder containing the <strong>game client</strong>.</li>
 <li><code>-v ./client-data:/output</code> - Shares the client-data folder (on your computer) with the container at the <code>/output</code> location. The extracted client data will be written here.</li>
-<li><code>ghcr.io/thoriumlxc/cmangos-tbc:2025.02.17</code> - Specifies the container image to use, which contains the software for extracting client data.</li>
+<li><code>ghcr.io/thoriumlxc/cmangos-tbc:2025.02.23</code> - Specifies the container image to use, which contains the software for extracting client data.</li>
 </ul>
 <p>The extract files should look roughly like the following:</p>
 <div class="admonition tip">
@@ -3436,7 +3436,7 @@
 <p>You can then reference this named volume (like a shared folder) called <code>cmangos-tbc-map-data</code> in a Docker Compose file. This will be expected by the default Docker Compose configuration files, which is done like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">mangosd</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/thoriumlxc/cmangos-tbc:2025.02.17</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/thoriumlxc/cmangos-tbc:2025.02.23</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="c1"># This uses the named volume &#39;cmangos-tbc-map-data&#39;, and makes it</span>
 <span class="w">      </span><span class="c1"># available to the emulator server at the directory &#39;/opt/mangos/storage/data&#39;</span>
