@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#default-user-accounts" class="md-skip">
+        <a href="#user-accounts" class="md-skip">
           Skip to content
         </a>
       
@@ -2399,6 +2399,20 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+  
+  <span class="md-ellipsis">
+    Accounts
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2411,6 +2425,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#default-user-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default User Accounts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-system-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default System Accounts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3237,6 +3288,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#default-user-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default User Accounts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-system-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default System Accounts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3251,8 +3328,91 @@
 
 
 
-<h1 id="default-user-accounts">Default User Accounts</h1>
+<h1 id="user-accounts">User Accounts</h1>
+<p>User accounts can be created with the <code>mangosd</code> service, which can be attached to with the <code>docker compose attach</code> command. You can attach to the mangosd service by running the following command:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>attach<span class="w"> </span>mangosd
+</code></pre></div>
+<p>This will connect to the service, allowing you to send commands like <code>account create</code> or <code>account set addon</code> to the server. To create a user named <code>myuser</code> with password <code>mypassword</code>, you can run the following command:</p>
+<div class="highlight"><pre><span></span><code>account<span class="w"> </span>create<span class="w"> </span>myuser<span class="w"> </span>mypassword
+</code></pre></div>
+<p>To enable access to an expansion (0 = Classic, 1 = TBC, 2 = WOTLK, ...), you can run the following command:</p>
+<div class="highlight"><pre><span></span><code>account<span class="w"> </span><span class="nb">set</span><span class="w"> </span>addon<span class="w"> </span>myuser<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<h2 id="default-user-accounts">Default User Accounts</h2>
 <p>When you set up your server environment, you’ll find several pre-configured user accounts ready to go. These accounts are designed to help you get started quickly without needing to configure detailed login information. Whether you're interested in exploring mechanics, running tests, or just jumping into gameplay, these accounts make it easy to log in and start experimenting immediately.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Username</th>
+<th>Password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Player</td>
+<td><code>Lokhtos</code></td>
+<td><code>mypassword</code></td>
+</tr>
+<tr>
+<td>Player</td>
+<td><code>Evonice</code></td>
+<td><code>mypassword</code></td>
+</tr>
+<tr>
+<td>Player</td>
+<td><code>Malyfous</code></td>
+<td><code>mypassword</code></td>
+</tr>
+<tr>
+<td>Player</td>
+<td><code>Smolderforge</code></td>
+<td><code>mypassword</code></td>
+</tr>
+<tr>
+<td>Player</td>
+<td><code>Burninate</code></td>
+<td><code>mypassword</code></td>
+</tr>
+<tr>
+<td>Player</td>
+<td><code>Magmus</code></td>
+<td><code>mypassword</code></td>
+</tr>
+<tr>
+<td>Player</td>
+<td><code>Pyroguard</code></td>
+<td><code>mypassword</code></td>
+</tr>
+<tr>
+<td>Player</td>
+<td><code>Emberseer</code></td>
+<td><code>mypassword</code></td>
+</tr>
+<tr>
+<td>GM</td>
+<td><code>MasterSmith</code></td>
+<td><code>gamemaster</code></td>
+</tr>
+<tr>
+<td>GM</td>
+<td><code>MCGuard</code></td>
+<td><code>gamemaster</code></td>
+</tr>
+<tr>
+<td>Admin</td>
+<td><code>Thaurissan</code></td>
+<td><code>administrator</code></td>
+</tr>
+<tr>
+<td>Admin</td>
+<td><code>IronCouncilor</code></td>
+<td><code>administrator</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="default-system-accounts">Default System Accounts</h2>
+<p>By default, all servers come with a base set of pre-configured user accounts to assist with diagnostic work. These accounts are designed to help you get started quickly without needing to configure detailed login information.</p>
 <table>
 <thead>
 <tr>
@@ -3280,7 +3440,6 @@
 </tbody>
 </table>
 <p>Each default account is tailored for different levels of access and control. Some accounts offer Game Master privileges, giving you the ability to test commands and manage settings, while others simulate a more standard player experience.</p>
-<p>Recommended for players is to just use the <code>player:player</code> login.</p>
 
 
 
