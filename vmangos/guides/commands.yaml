@@ -1,0 +1,1189 @@
+commands:
+  - command: account
+    level: 0
+    syntax: '.account'
+    description: 'Displays the current access level of your account'
+  - command: account characters
+    level: 3
+    syntax: '.account characters [#accountId|$accountName]'
+    description: 'Displays a list of all characters for the specified account by #accountId, $accountName, or for the account of the selected player.'
+  - command: account set addon
+    level: 3
+    syntax: '.account set addon [#accountId|$accountName] #addon'
+    description: 'Sets the allowed expansion for the specified #accountId, $accountName, or the selected characters account. Use 0 for Classic, 1 for TBC, or 2 for WOTLK.'
+  - command: additem
+    level: 3
+    syntax: '.additem #itemid/[#itemname]/#shift-click-item-link #itemcount'
+    description: 'Adds the specified number of items by #itemId, $itemName (exact match in brackets), or a shift-clicked item link to your or the selected characters inventory. If #itemcount is omitted, one item will be added.'
+  - command: account lock
+    level: 0
+    syntax: '.account lock [on|off]'
+    description: 'Restricts account logins to the current IP address or removes the restriction if active.'
+  - command: additemset
+    level: 3
+    syntax: '.additemset #itemsetid'
+    description: 'Adds all items from the item set with #itemsetId to your or the selected characters inventory, adding one of each item.'
+  - command: account password
+    level: 0
+    syntax: '.account password $old_password $new_password $new_password'
+    description: 'Changes your account password from $old_password to $new_password.'
+  - command: ahbot items amount
+    level: 3
+    syntax: '.ahbot items amount $GreyItems $WhiteItems $GreenItems $BlueItems $PurpleItems $OrangeItems $YellowItems'
+    description: 'Sets the amount of each item color to be sold on the auction: $GreyItems, $WhiteItems, $GreenItems, $BlueItems, $PurpleItems, $OrangeItems, and $YellowItems.'
+  - command: ahbot items amount blue
+    level: 3
+    syntax: '.ahbot items amount blue $BlueItems'
+    description: 'Sets the amount of blue items to be sold on the auction to $BlueItems.'
+  - command: ahbot items amount green
+    level: 3
+    syntax: '.ahbot items amount green $GreenItems'
+    description: 'Sets the amount of green items to be sold on the auction to $GreenItems.'
+  - command: ahbot items amount grey
+    level: 3
+    syntax: '.ahbot items amount grey $GreyItems'
+    description: 'Sets the amount of grey items to be sold on the auction to $GreyItems.'
+  - command: ahbot items amount orange
+    level: 3
+    syntax: '.ahbot items amount orange $OrangeItems'
+    description: 'Sets the amount of orange items to be sold on the auction to $OrangeItems.'
+  - command: ahbot items amount purple
+    level: 3
+    syntax: '.ahbot items amount purple $PurpleItems'
+    description: 'Sets the amount of purple items to be sold on the auction to $PurpleItems.'
+  - command: ahbot items amount white
+    level: 3
+    syntax: '.ahbot items amount white $WhiteItems'
+    description: 'Sets the amount of white items to be sold on the auction to $WhiteItems.'
+  - command: ahbot items amount yellow
+    level: 3
+    syntax: '.ahbot items amount yellow $YellowItems'
+    description: 'Sets the amount of yellow items to be sold on the auction to $YellowItems.'
+  - command: ahbot items ratio
+    level: 3
+    syntax: '.ahbot items ratio $allianceratio $horderatio $neutralratio'
+    description: 'Sets the item ratio for the three auction houses: Alliance, Horde & Neutral (Goblin)'
+  - command: ahbot items ratio alliance
+    level: 3
+    syntax: '.ahbot items ratio alliance $allianceratio'
+    description: 'Sets the item ratio for the Alliance auction house to $allianceratio.'
+  - command: ahbot items ratio horde
+    level: 3
+    syntax: '.ahbot items ratio horde $horderatio'
+    description: 'Sets the item ratio for the Horde auction house to $horderatio.'
+  - command: ahbot items ratio neutral
+    level: 3
+    syntax: '.ahbot items ratio neutral $neutralratio'
+    description: 'Sets the item ratio for the neutral auction house to $neutralratio.'
+  - command: ahbot rebuild
+    level: 3
+    syntax: '.ahbot rebuild [all]'
+    description: 'Expires all current ahbot auctions except those bid on by players. If the _all_ option is used, bid auctions are also expired, and ahbot refills the auction house based on current settings.'
+  - command: ahbot reload
+    level: 3
+    syntax: '.ahbot reload'
+    description: 'Reloads AHBot settings from the configuration file.'
+  - command: ahbot status
+    level: 3
+    syntax: '.ahbot status [all]'
+    description: 'Displays the current ahbot state in summary form, or in detail if the _all_ option is used.'
+  - command: auction
+    level: 3
+    syntax: '.auction'
+    description: 'Displays your factions auction house.'
+  - command: auction alliance
+    level: 3
+    syntax: '.auction alliance'
+    description: 'Displays the Alliance auction house store, regardless of your team.'
+  - command: auction goblin
+    level: 3
+    syntax: '.auction goblin'
+    description: 'Displays the Goblin auction house store, shared by all teams.'
+  - command: auction horde
+    level: 3
+    syntax: '.auction horde'
+    description: 'Displays the Horde auction house store, regardless of your team.'
+  - command: auction item
+    level: 3
+    syntax: '.auction item (alliance|horde|goblin) #itemid[:#itemcount] [[[#minbid] #buyout] [short|long|verylong]'
+    description: 'Adds a new item (in multiple stacks if #itemcount exceeds stack size) to a specified auction house with a duration of short, long, or very long. The auction is created without an owner, similar to in-game settings.'
+  - command: announce
+    level: 1
+    syntax: '.announce $MessageToBroadcast'
+    description: 'Sends a global message to all online players in the chat log.'
+  - command: aura
+    level: 3
+    syntax: '.aura #spellid'
+    description: 'Applies the aura from #spellId to the selected unit.'
+  - command: ban account
+    level: 3
+    syntax: '.ban account $Name $bantime $reason'
+    description: 'Bans the specified account and kicks the player. A negative $bantime results in a permanent ban; otherwise, use a time string like 4d20h3s.'
+  - command: ban character
+    level: 3
+    syntax: '.ban character $Name $bantime $reason'
+    description: 'Bans the specified character and kicks the player. A negative $bantime results in a permanent ban; otherwise, use a time string like 4d20h3s.'
+  - command: ban ip
+    level: 3
+    syntax: '.ban ip $Ip $bantime $reason'
+    description: 'Bans the specified IP address. A negative $bantime results in a permanent ban; otherwise, use a time string like 4d20h3s.'
+  - command: baninfo account
+    level: 3
+    syntax: '.baninfo account $accountid'
+    description: 'Displays detailed information about the ban for the specified $accountId.'
+  - command: baninfo character
+    level: 3
+    syntax: '.baninfo character $charactername'
+    description: 'Displays detailed information about the ban for the specified $characterName.'
+  - command: baninfo ip
+    level: 3
+    syntax: '.baninfo ip $ipWatch'
+    description: 'Displays detailed information about the ban for the specified $ipWatch.'
+  - command: bank
+    level: 3
+    syntax: '.bank'
+    description: 'Displays your bank inventory.'
+  - command: banlist account
+    level: 3
+    syntax: '.banlist account [$Name]'
+    description: 'Searches the ban list for a character name matching $Name. A pattern is required.'
+  - command: banlist character
+    level: 3
+    syntax: '.banlist character $Name'
+    description: 'Searches the banlist for a character name pattern. Pattern required'
+  - command: banlist ip
+    level: 3
+    syntax: '.banlist ip [$Ip]'
+    description: 'Searches the ban list for an IP matching $Ip or displays all IP bans.'
+  - command: cast
+    level: 3
+    syntax: '.cast #spellid [triggered]'
+    description: 'Casts #spellId on the selected target or on yourself if no target is selected. If triggered is specified, the spell is cast with the triggered flag.'
+  - command: cast back
+    level: 3
+    syntax: '.cast back #spellid [triggered]'
+    description: 'The selected target casts #spellId on your character. If triggered is specified, the spell is cast with the triggered flag.'
+  - command: cast dist
+    level: 3
+    syntax: '.cast dist #spellid [#dist [triggered]]'
+    description: 'Casts #spellId at a point #dist away. If triggered is specified, the spell is cast with the triggered flag. Note that not all spells can be cast as area spells.'
+  - command: cast self
+    level: 3
+    syntax: '.cast self #spellid [triggered]'
+    description: 'The target casts #spellId on itself. If triggered is specified, the spell is cast with the triggered flag.'
+  - command: cast target
+    level: 3
+    syntax: '.cast target #spellid [triggered]'
+    description: 'The selected target casts #spellId on its current victim. If triggered is specified, the spell is cast with the triggered flag.'
+  - command: character deleted list
+    level: 3
+    syntax: '.character deleted list [#guid|$name]'
+    description: 'Displays a list of all deleted characters. If $name is provided, it filters characters by name; if #guid is provided, it shows the character with that specific GUID.'
+  - command: character deleted restore
+    level: 3
+    syntax: '.character deleted restore #guid|$name [$newname] [#new account]'
+    description: 'Restores a deleted character. If $name is provided, it restores characters matching that name; if #guid is provided, it restores the character with that GUID. Optionally, set $newname to restore with a different name or #newaccount to restore to a specific account. Only one character can be restored at a time.'
+  - command: character level
+    level: 3
+    syntax: '.character level [$playername] [#level]'
+    description: 'Sets the level of the character with $playername or the selected character if no name is provided. If #level is omitted, the level increases by 1; if set to 0, the current level is reset. Can be used for offline characters, recalculating stats and values; decreasing level may reset talents and cause loss of items that exceed the new level requirement.'
+  - command: cooldown
+    level: 3
+    syntax: '.cooldown [#spell_id]'
+    description: 'Removes all cooldowns or the cooldown for #spell_id from the selected character, or from yourself if no character is selected.'
+  - command: damage
+    level: 3
+    syntax: '.damage $damage_amount [$school [$spellid]]'
+    description: 'Applies $damage_amount to the target. If $school and $spellid are not provided, it deals flat melee damage without modifiers. With $school, physical damage is reduced by armor, and other damage types consider absorption effects. If $spellid is specified, the damage is treated as spell damage.'
+  - command: debug bg
+    level: 3
+    syntax: '.debug bg'
+    description: 'Toggles debug mode for battlegrounds, allowing a GM to start a battleground with a single player.'
+  - command: debug getitemvalue
+    level: 3
+    syntax: '.debug getitemvalue #itemguid #field [int|hex|bit|float]'
+    description: 'Retrieves the #field value of the item with #itemguid in your inventory. Use the type argument to set the output format: int (default), hex, bit, or float.'
+  - command: debug getvalue
+    level: 3
+    syntax: '.debug getvalue #field [int|hex|bit|float]'
+    description: 'Retrieves the #field value of the selected target, or your own field if no target is selected. Use the type argument to set the output format: int (default), hex, bit, or float.'
+  - command: debug moditemvalue
+    level: 3
+    syntax: '.debug moditemvalue #guid #field [int|float| &= | |= | &=~ ] #value'
+    description: 'Modifies the #field of the item with #itemguid in your inventory by #value. Use the type argument to set the modification mode: int (default, adds/subtracts as a decimal number), float (adds/subtracts as a float), &= (bitwise AND), |= (bitwise OR), or &=~ (bitwise AND NOT), with bitwise operations using #value as a hex number.'
+  - command: debug modvalue
+    level: 3
+    syntax: '.debug modvalue #field [int|float| &= | |= | &=~ ] #value'
+    description: 'Modifies the #field of the selected target by #value, or your own field if no target is selected. Use the type argument to set the modification mode: int (default, adds/subtracts as a decimal), float (adds/subtracts as a float), &= (bitwise AND), |= (bitwise OR), or &=~ (bitwise AND NOT), with bitwise operations using #value as a hex number.'
+  - command: debug setitemvalue
+    level: 3
+    syntax: '.debug setitemvalue #guid #field [int|hex|bit|float] #value'
+    description: 'Sets the #field of the item with #itemguid in your inventory to #value. Use the type argument to specify the input format: int (default), hex, bit, or float.'
+  - command: character rename
+    level: 2
+    syntax: '.character rename [$name]'
+    description: 'Marks the selected character or the character specified by $name for renaming at the next login.'
+  - command: character reputation
+    level: 2
+    syntax: '.character reputation [$player_name]'
+    description: 'Displays reputation information for the selected player or the player specified by $player_name.'
+  - command: combatstop
+    level: 2
+    syntax: '.combatstop [$playername]'
+    description: 'Stops combat for the selected character. If a non-player is selected, it applies to yourself; if $playername is provided, it applies to the specified online player.'
+  - command: commands
+    level: 0
+    syntax: '.commands'
+    description: 'Displays a list of available commands based on your account level.'
+  - command: debug setvalue
+    level: 3
+    syntax: '.debug setvalue #field [int|hex|bit|float] #value'
+    description: 'Sets the #field of the selected target to #value, or your own field if no target is selected. Use the type argument to specify the input format: int (default), hex, bit, or float.'
+  - command: debug spellcoefs
+    level: 3
+    syntax: '.debug spellcoefs #spellid'
+    description: 'Displays the default calculated and database-stored coefficients for direct and DoT healing or damage for #spellid.'
+  - command: debug anim
+    level: 2
+    syntax: '.debug anim #emoteid'
+    description: 'Plays the emote with #emoteid for your character.'
+  - command: debug spellmods
+    level: 3
+    syntax: '.debug spellmods (flat|pct) #spellMaskBitIndex #spellModOp #value'
+    description: 'Sets a client-side spell modifier for spells with the bit set at #spellMaskBitIndex in the spell family mask. The modification depends on #spellModOp and is set to #value.'
+  - command: die
+    level: 3
+    syntax: '.die'
+    description: 'Kills the selected player or yourself if no player is selected.'
+  - command: distance
+    level: 3
+    syntax: '.distance [$name/$link]'
+    description: 'Displays the distance from your character to the selected creature or player, to a player with $name, or to an entity linked via shift-click with its GUID.'
+  - command: explorecheat
+    level: 3
+    syntax: '.explorecheat #flag'
+    description: 'Reveals or hides all maps for the selected player, or for yourself if no player is selected. Use #flag 1 to reveal and #flag 0 to hide all maps.'
+  - command: gm fly
+    level: 3
+    syntax: '.gm fly [on/off]'
+    description: 'Enables or disables GM fly mode.'
+  - command: debug play cinematic
+    level: 1
+    syntax: '.debug play cinematic #cinematicid'
+    description: 'Plays the cinematic with #cinematicid for you, keeping your character stationary while the camera moves.'
+  - command: debug play sound
+    level: 1
+    syntax: '.debug play sound #soundid'
+    description: 'Plays the sound with #soundid for you only; other players will not hear it. Note: The client may have over 5,000 available sounds.'
+  - command: gm list
+    level: 3
+    syntax: '.gm list'
+    description: 'Displays a list of all Game Master accounts and their security levels.'
+  - command: hidearea
+    level: 3
+    syntax: '.hidearea #areaid'
+    description: 'Hides the area with #areaid for the selected character, or for yourself if no character is selected.'
+  - command: instance listbinds
+    level: 3
+    syntax: '.instance listbinds'
+    description: 'Lists all instance binds for the selected player.'
+  - command: instance savedata
+    level: 3
+    syntax: '.instance savedata'
+    description: 'Saves the instance data for the current players map to the database.'
+  - command: delticket
+    level: 2
+    syntax: '.delticket [all,#num,$character_name]'
+    description: 'Deletes a ticket. Use "all" to delete all tickets, or specify #num or $character_name to delete a specific ticket.'
+  - command: demorph
+    level: 2
+    syntax: '.demorph'
+    description: 'Removes the morph from the selected player.'
+  - command: instance stats
+    level: 3
+    syntax: '.instance stats'
+    description: 'Displays statistics about all instances.'
+  - command: dismount
+    level: 0
+    syntax: '.dismount'
+    description: 'Dismounts you if you are currently mounted.'
+  - command: instance unbind
+    level: 3
+    syntax: '.instance unbind all'
+    description: 'Clears all instance binds for the selected player with "all," or only the specified instance for #mapid.'
+  - command: event
+    level: 2
+    syntax: '.event #event_id'
+    description: 'Displays details about the event with #event_id.'
+  - command: event list
+    level: 2
+    syntax: '.event list'
+    description: 'Displays a list of currently active events or all events.'
+  - command: event start
+    level: 2
+    syntax: '.event start #event_id'
+    description: 'Starts the event with #event_id, setting the start time to the current moment (changes are not saved in the database).'
+  - command: event stop
+    level: 2
+    syntax: '.event stop #event_id'
+    description: 'Stops the event with #event_id, setting the stop time to a past moment that makes the current time the events stop time (changes are not saved in the database).'
+  - command: learn
+    level: 3
+    syntax: '.learn #spell [all]'
+    description: 'Makes the selected character learn the spell with #spell. If "all" is provided, all ranks of the spell are learned.'
+  - command: gm
+    level: 1
+    syntax: '.gm [on/off]'
+    description: 'Enables or disables in-game GM mode, or displays the current state (on/off) if no argument is provided.'
+  - command: gm chat
+    level: 1
+    syntax: '.gm chat [on/off]'
+    description: 'Enables or disables GM chat mode (showing the GM badge in messages), or displays the current state (on/off) if no argument is provided.'
+  - command: learn all
+    level: 3
+    syntax: '.learn all'
+    description: 'Learns a large set of various spells, potentially useful for administrators.'
+  - command: gm ingame
+    level: 0
+    syntax: '.gm ingame'
+    description: 'Displays a list of available in-game Game Masters.'
+  - command: learn all_myclass
+    level: 3
+    syntax: '.learn all_myclass'
+    description: 'Learns all spells and talents available for your class.'
+  - command: gm setview
+    level: 1
+    syntax: '.gm setview'
+    description: 'Sets the farsight view on the selected unit. Select yourself to return the view to normal.'
+  - command: gm visible
+    level: 1
+    syntax: '.gm visible on/off'
+    description: 'Displays the current visibility state or toggles GM visibility for other players (on/off).'
+  - command: go
+    level: 1
+    syntax: '.go [$playername|pointlink|#x #y #z [#mapid]]'
+    description: 'Teleports your character to the location of the player $playername, a shift-clicked link (player, tele, taxinode, creature, gameobject), or to explicit coordinates #x #y #z in the optional #mapid.'
+  - command: go creature
+    level: 1
+    syntax: '.go creature (#creature_guid|$creature_name|id #creature_id)'
+    description: 'Teleports your character to the creature with #creature_guid, to a creature matching the $creature_name substring, or to a creature spawned from the template with #creature_id.'
+  - command: go graveyard
+    level: 1
+    syntax: '.go graveyard #graveyardId'
+    description: 'Teleports your character to the graveyard with the specified #graveyardId.'
+  - command: go grid
+    level: 1
+    syntax: '.go grid #gridX #gridY [#mapId]'
+    description: 'Teleports the GM to the center of the grid with the provided #gridX and #gridY coordinates on map #mapId (or the current map if #mapId is not provided).'
+  - command: go object
+    level: 1
+    syntax: '.go object (#gameobject_guid|$gameobject_name|id #gameobject_id)'
+    description: 'Teleports your character to the game object with #gameobject_guid, to a game object matching the $gameobject_name substring, or to a game object spawned from the template with #gameobject_id.'
+  - command: go taxinode
+    level: 1
+    syntax: '.go taxinode #taxinode'
+    description: 'Teleports the player to the specified taxinode #taxinode coordinates. Use `.lookup taxinode $namepar` to search for the zone.'
+  - command: go trigger
+    level: 1
+    syntax: '.go trigger (#trigger_id|$trigger_shift-link|$trigger_target_shift-link) [target]'
+    description: 'Teleports your character to the area trigger with #trigger_id or the trigger associated with a shift-clicked link. If _target_ is provided, the character will be teleported to the area trigger's target point.'
+  - command: go xy
+    level: 1
+    syntax: '.go xy #x #y [#mapid]'
+    description: 'Teleports the player to the point with (#x, #y) coordinates at ground (or water) level on map #mapid, or the current map if #mapid is not provided.'
+  - command: go xyz
+    level: 1
+    syntax: '.go xyz #x #y #z [#mapid]'
+    description: 'Teleports the player to the point with (#x, #y, #z) coordinates at ground (or water) level on map #mapid, or the current map if #mapid is not provided.'
+  - command: go zonexy
+    level: 1
+    syntax: '.go zonexy #x #y [#zone]'
+    description: 'Teleports the player to the point with (#x, #y) coordinates at ground (or water) level in zone #zoneid, or the current zone if #zoneid is not provided. Use `.lookup area $namepar` to search for the zone.'
+  - command: gobject add
+    level: 2
+    syntax: '.gobject add #id <spawntimeSecs>'
+    description: 'Adds a game object from the game object templates to the world at your current location using #id. The optional <spawntimeSecs> sets the spawn time. Note that this is similar to the `.gameobject` command.'
+  - command: gobject delete
+    level: 2
+    syntax: '.gobject delete #go_guid'
+    description: 'Deletes the game object with #go_guid.'
+  - command: gobject move
+    level: 2
+    syntax: '.gobject move #goguid [#x #y #z]'
+    description: 'Moves the game object with #goguid to your characters coordinates, or to (#x, #y, #z) if those coordinates are provided.'
+  - command: gobject near
+    level: 2
+    syntax: '.gobject near  [#distance]'
+    description: 'Outputs game objects within #distance from the player, showing their GUIDs and coordinates, sorted by distance. If #distance is not provided, 10 is used as the default value.'
+  - command: gobject target
+    level: 2
+    syntax: '.gobject target [#go_id|#go_name_part]'
+    description: 'Locates and displays the position of the nearest game object. If #go_id or #go_name_part is provided, it locates and shows the position of the nearest game object matching the specified template ID or name substring.'
+  - command: gobject turn
+    level: 2
+    syntax: '.gobject turn #goguid'
+    description: 'Sets the orientation of the game object with #goguid to match the current characters orientation.'
+  - command: goname
+    level: 1
+    syntax: '.goname [$charactername]'
+    description: 'Teleports to the specified character. You can provide the character name or click on their portrait (e.g., when in a group). The character can be offline.'
+  - command: gps
+    level: 1
+    syntax: '.gps [$name|$shift-link'
+    description: 'Displays the position information for the selected character or creature. If $name is provided, it shows the position for the named player, or if a creature/gameobject is shift-clicked, it shows the position for that creature/gameobject if loaded. The information includes X, Y, Z, orientation, map ID, and zone ID.'
+  - command: groupgo
+    level: 1
+    syntax: '.groupgo [$charactername]'
+    description: 'Teleports the specified character and their group to you. Only online characters will be teleported, but the originally selected group member can be offline.'
+  - command: guid
+    level: 2
+    syntax: '.guid'
+    description: 'Displays the GUID for the selected character.'
+  - command: guild create
+    level: 2
+    syntax: '.guild create [$GuildLeaderName] $GuildName'
+    description: 'Creates a guild named $GuildName with $GuildLeaderName (or the selected player) as the leader. The guild name must be in quotes.'
+  - command: guild delete
+    level: 2
+    syntax: '.guild delete $GuildName'
+    description: 'Deletes the guild named $GuildName. The guild name must be in quotes.'
+  - command: guild invite
+    level: 2
+    syntax: '.guild invite [$CharacterName] $GuildName'
+    description: 'Adds player $CharacterName (or the selected player) to the guild $GuildName. The guild name must be in quotes.'
+  - command: guild rank
+    level: 2
+    syntax: '.guild rank $CharacterName #Rank'
+    description: 'Sets the rank #Rank for $CharacterName in the guild.'
+  - command: guild uninvite
+    level: 2
+    syntax: '.guild uninvite [$CharacterName]'
+    description: 'Removes player $CharacterName (or the selected player) from the guild.'
+  - command: help
+    level: 0
+    syntax: '.help [$command]'
+    description: 'Displays usage instructions for the specified $command. If no $command is provided, shows a list of available commands.'
+  - command: learn all_myspells
+    level: 3
+    syntax: '.learn all_myspells'
+    description: 'Learns all spells available for your class, excluding talents and spells already learned as talents.'
+  - command: honor add
+    level: 2
+    syntax: '.honor add $amount'
+    description: 'Adds a certain amount of honor (gained in lifetime) to the selected player.'
+  - command: honor addkill
+    level: 2
+    syntax: '.honor addkill'
+    description: 'Adds the targeted unit as one of your PvP kills for today. Honor is awarded only if the target is a racial leader or a player.'
+  - command: honor show
+    level: 2
+    syntax: '.honor show'
+    description: 'Displays the honor stats for the selected player.'
+  - command: honor update
+    level: 2
+    syntax: '.honor update'
+    description: 'Forces an update of honor data.'
+  - command: learn all_mytalents
+    level: 3
+    syntax: '.learn all_mytalents'
+    description: 'Learns all talents (and spells with the first rank learned as a talent) available for your class.'
+  - command: levelup
+    level: 3
+    syntax: '.levelup [$playername] [#numberoflevels]'
+    description: 'Increases or decreases the level of the character with $playername (or the selected character if no name is provided) by #numberoflevels. If #numberoflevels is omitted, the level increases by 1. If set to 0, the level is reset to its starting point. If no character is selected and no name is provided, your level will be increased. This command works for offline characters, recalculating all stats and dependent values. When decreasing levels, talents may be reset, and equipped items with a higher level requirement may be lost.'
+  - command: linkgrave
+    level: 3
+    syntax: '.linkgrave #graveyard_id [alliance|horde]'
+    description: 'Links the current zone to a graveyard for any faction (or alliance/horde faction ghosts). This allows characters to teleport to the nearest linked graveyard after death if its the closest and accepts ghosts from the characters faction. You can add only a single graveyard to another map, and only if no other graveyards are already linked (or planned to be linked) on the same map.'
+  - command: list creature
+    level: 3
+    syntax: '.list creature #creature_id [#max_count]'
+    description: 'Displays creatures with #creature_id found in the world, showing their GUIDs and coordinates sorted by distance from your character. Up to #max_count creatures will be shown. If #max_count is not provided, the default is 10.'
+  - command: itemmove
+    level: 2
+    syntax: '.itemmove #sourceslotid #destinationslotid'
+    description: 'Moves an item from slot #sourceslotid to slot #destinationslotid in your inventory. (Note: This command is not yet implemented.)'
+  - command: kick
+    level: 2
+    syntax: '.kick [$charactername]'
+    description: 'Kicks the specified character ($charactername) from the world. If no name is provided, the selected player (except for yourself) will be kicked.'
+  - command: list item
+    level: 3
+    syntax: '.list item #item_id [#max_count]'
+    description: 'Outputs items with #item_id found in all character inventories, mails, auctions, and guild banks. Displays item GUIDs, item owner GUIDs, owner accounts, and owner names (guild name and GUID for guild banks). Up to #max_count items will be displayed. If #max_count is not provided, 10 is used by default.'
+  - command: list object
+    level: 3
+    syntax: '.list object #gameobject_id [#max_count]'
+    description: 'Outputs game objects with #gameobject_id found in the world. Displays game object GUIDs and coordinates sorted by distance from your character. Up to #max_count game objects will be displayed. If #max_count is not provided, 10 is used by default.'
+  - command: learn all_crafts
+    level: 2
+    syntax: '.learn crafts'
+    description: 'Learns all professions and recipes.'
+  - command: learn all_default
+    level: 1
+    syntax: '.learn all_default [$playername]'
+    description: 'Learns all default spells for the selected player or $playername, based on their race/class, and includes spells rewarded by completed quests.'
+  - command: learn all_gm
+    level: 2
+    syntax: '.learn all_gm'
+    description: 'Learns all default spells for Game Masters.'
+  - command: learn all_lang
+    level: 1
+    syntax: '.learn all_lang'
+    description: 'Learns all languages.'
+  - command: list talents
+    level: 3
+    syntax: '.list talents'
+    description: 'Displays a list of all learned talent rank spells for the selected player or yourself.'
+  - command: loadscripts
+    level: 3
+    syntax: '.loadscripts $scriptlibraryname'
+    description: 'Unloads the current script and loads the script library $scriptlibraryname. If $scriptlibraryname is omitted, it reloads the current library in case it was changed while the server was running.'
+  - command: lookup creature
+    level: 3
+    syntax: '.lookup creature $namepart'
+    description: 'Looks up a creature by $namepart and returns all matches with their creature IDs.'
+  - command: learn all_recipes
+    level: 2
+    syntax: '.learn all_recipes [$profession]'
+    description: 'Learns all recipes for the specified profession and sets the skill level to maximum. Example `.learn all_recipes enchantin`'
+  - command: lookup faction
+    level: 3
+    syntax: '.lookup faction $name'
+    description: 'Attempts to find the ID of the faction matching the provided $name.'
+  - command: lookup item
+    level: 3
+    syntax: '.lookup item $itemname'
+    description: 'Looks up an item by $itemname and returns all matches with their Item IDs.'
+  - command: lookup itemset
+    level: 3
+    syntax: '.lookup itemset $itemname'
+    description: 'Looks up an item set by $itemname and returns all matches with their Item Set IDs.'
+  - command: lookup object
+    level: 3
+    syntax: '.lookup object $objname'
+    description: 'Looks up a game object by $objname and returns all matches with their GameObject IDs.'
+  - command: lookup quest
+    level: 3
+    syntax: '.lookup quest $namepart'
+    description: 'Looks up a quest by $namepart and returns all matches with their Quest IDs.'
+  - command: lookup skill
+    level: 3
+    syntax: '.lookup skill $$namepart'
+    description: 'Looks up a skill by $namepart and returns all matches with their Skill IDs.'
+  - command: lookup spell
+    level: 3
+    syntax: '.lookup spell $namepart'
+    description: 'Looks up a spell by $namepart and returns all matches with their Spell IDs.'
+  - command: lookup account email
+    level: 2
+    syntax: '.lookup account email $emailpart [#limit]'
+    description: 'Searches accounts with email addresses containing $emailpart, with an optional #limit on the number of results. If #limit is not provided, 100 results are expected.'
+  - command: lookup account ip
+    level: 2
+    syntax: 'lookup account ip $ippart [#limit]'
+    description: 'Searches accounts where the last used IP includes $ippart (textual), with an optional #limit on the number of results. If #limit is not provided, 100 results are expected.'
+  - command: lookup account name
+    level: 2
+    syntax: '.lookup account name $accountpart [#limit]'
+    description: 'Searches accounts where the username includes $accountpart, with an optional #limit on the number of results. If #limit is not provided, 100 results are expected.'
+  - command: lookup area
+    level: 1
+    syntax: '.lookup area $namepart'
+    description: 'Looks up an area by $namepart and returns all matches with their Area IDs.'
+  - command: lookup taxinode
+    level: 3
+    syntax: '.lookup taxinode $substring'
+    description: 'Searches and outputs all taxinodes with the provided $substring in their name.'
+  - command: lookup event
+    level: 2
+    syntax: '.lookup event $name'
+    description: 'Attempts to find the ID of the event with the provided $name.'
+  - command: maxskill
+    level: 3
+    syntax: '.maxskill'
+    description: 'Sets all skills of the targeted player to their maximum values for their current level.'
+  - command: movegens
+    level: 3
+    syntax: '.movegens'
+    description: 'Displays the movement generators stack for the selected creature or player.'
+  - command: neargrave
+    level: 3
+    syntax: '.neargrave [alliance|horde]'
+    description: 'Finds the nearest graveyard linked to the zone, or the nearest one that accepts alliance or horde faction ghosts.'
+  - command: npc addweapon
+    level: 3
+    syntax: '.npc addweapon'
+    description: 'Not yet implemented.'
+  - command: lookup player account
+    level: 2
+    syntax: '.lookup player account $accountpart [#limit]'
+    description: 'Searches players whose account username contains $accountpart, with an optional #limit on the number of results. If #limit is not provided, 100 results are expected.'
+  - command: lookup player email
+    level: 2
+    syntax: '.lookup player email $emailpart [#limit]'
+    description: 'Searches players whose account email contains $emailpart, with an optional #limit on the number of results. If #limit is not provided, 100 results are expected.'
+  - command: lookup player ip
+    level: 2
+    syntax: '.lookup player ip $ippart [#limit]'
+    description: 'Searches players whose account last used IP contains $ippart (textual), with an optional #limit on the number of results. If #limit is not provided, 100 results are expected.'
+  - command: lookup pool
+    level: 2
+    syntax: '.lookup pool $pooldescpart'
+    description: 'Lists pools (anywhere) that contain the substring $pooldescpart in their description.'
+  - command: npc allowmove
+    level: 3
+    syntax: '.npc allowmove'
+    description: 'Enables or disables movement for creatures in the world. (Not yet implemented.)'
+  - command: npc info
+    level: 3
+    syntax: '.npc info'
+    description: 'Displays a list of details for the selected creature, including GUID, faction, NPC flags, entry ID, model ID, level, health (current/maximum), field flags, dynamic flags, faction template, position information, and creature type (e.g., if the creature is a vendor).'
+  - command: npc playemote
+    level: 3
+    syntax: '.npc playemote #emoteid'
+    description: 'Makes the selected creature emote with the emote of #emoteid.'
+  - command: pdump load
+    level: 3
+    syntax: '.pdump load $filename $account [$newname] [$newguid]'
+    description: 'Loads a character dump from a dump file into the character list of $account, with either the saved name or $newname, and assigns the saved or $newguid GUID.'
+  - command: lookup tele
+    level: 1
+    syntax: '.lookup tele $substring'
+    description: 'Searches and outputs all .tele command locations with the provided $substring in their name.'
+  - command: pdump write
+    level: 3
+    syntax: '.pdump write $filename $playerNameOrGUID'
+    description: 'Writes a character dump with name or GUID $playerNameOrGUID to the file $filename.'
+  - command: modify aspeed
+    level: 1
+    syntax: '.modify aspeed #rate'
+    description: 'Modifies all speeds (run, swim, run back, swim back) of the selected player to normal base speed multiplied by #rate. If no player is selected, modifies your speed. #rate may range from 0.1 to 10.'
+  - command: modify bwalk
+    level: 1
+    syntax: '.modify bwalk #rate'
+    description: 'Modifies the speed of the selected player while running backwards to normal walk back speed multiplied by #rate. If no player is selected, modifies your speed. #rate may range from 0.1 to 10.'
+  - command: modify drunk
+    level: 1
+    syntax: '.modify drunk #value'
+    description: 'Sets the drunk level to #value (0..100). A value of 0 removes the drunk state, and 100 is the maximum drunk state.'
+  - command: modify energy
+    level: 1
+    syntax: '.modify energy #energy'
+    description: 'Modifies the energy of the selected player. If no player is selected, modifies your energy.'
+  - command: modify faction
+    level: 1
+    syntax: '.modify faction #factionid #flagid #npcflagid #dynamicflagid'
+    description: 'Modifies the faction and flags of the selected creature. Without arguments, displays the faction and flags of the selected creature.'
+  - command: modify gender
+    level: 2
+    syntax: '.modify gender male/female'
+    description: 'Changes the gender of the selected player to male or female.'
+  - command: modify honor
+    level: 2
+    syntax: '.modify honor $field $value'
+    description: 'Adds $value to an honor $field (used for debugging, values won’t be saved at player logout). Field options include points, rank, todaykills, yesterdaykills, yesterdayhonor, thisweekkills, thisweekhonor, lastweekkills, lastweekhonor, lastweekstanding, lifetimehonorablekills, and lifetimedishonorablekills.'
+  - command: modify hp
+    level: 1
+    syntax: '.modify hp #newhp'
+    description: 'Modifies the HP of the selected player. If no player is selected, modifies your HP.'
+  - command: modify mana
+    level: 1
+    syntax: '.modify mana #newmana'
+    description: 'Modifies the mana of the selected player. If no player is selected, modifies your mana.'
+  - command: modify money
+    level: 1
+    syntax: '.modify money #money.money #money'
+    description: 'Adds or removes money for the selected player. If no player is selected, modifies your money. #gold can be negative to remove money.'
+  - command: modify morph
+    level: 2
+    syntax: '.modify morph #displayid'
+    description: 'Changes your current model ID to #displayid.'
+  - command: modify mount
+    level: 1
+    syntax: '.modify mount #id #speed'
+    description: 'Displays the selected player as mounted on a creature with #id and sets the speed to #speed.'
+  - command: modify rage
+    level: 1
+    syntax: '.modify rage #newrage'
+    description: 'Modifies the rage of the selected player. If no player is selected, modifies your rage.'
+  - command: modify rep
+    level: 2
+    syntax: '.modify rep #repId (#repvalue | $rankname [#delta])'
+    description: 'Sets the selected player's reputation with faction #repId to #repvalue or to $reprank. If a reputation rank name is provided, the resulting reputation will be the lowest reputation for that rank plus the delta amount, if specified. Use .pinfo rep to list known reputation IDs or .lookup faction $name to find a specific faction ID.'
+  - command: modify scale
+    level: 1
+    syntax: '.modify scale #scale'
+    description: 'Changes the model scale for the targeted player (with relogin) or creature (until respawn).'
+  - command: modify speed
+    level: 1
+    syntax: '.modify speed #rate.speed #rate'
+    description: 'Modifies the running speed of the selected player to normal base run speed multiplied by #rate. If no player is selected, modifies your speed. #rate may range from 0.1 to 10.'
+  - command: modify standstate
+    level: 2
+    syntax: '.modify standstate #emoteid'
+    description: 'Changes the emote of your character while standing to #emoteid.'
+  - command: modify swim
+    level: 1
+    syntax: '.modify swim #rate'
+    description: 'Modifies the swim speed of the selected player to normal swim speed multiplied by #rate. If no player is selected, modifies your swim speed. #rate may range from 0.1 to 10.'
+  - command: quest add
+    level: 3
+    syntax: '.quest add #quest_id'
+    description: 'Adds quest #quest_id to the character’s quest log. Quests started from items cannot be added using this command, but the correct .additem call will be provided in the command output.'
+  - command: mute
+    level: 1
+    syntax: '.mute [$playerName] $timeInMinutes'
+    description: 'Disables chat messaging for any character from the account of character $playerName (or the selected character) for $timeInMinutes minutes. The player can be offline.'
+  - command: namego
+    level: 1
+    syntax: '.namego [$charactername]'
+    description: 'Teleports the given character to you. The character can be offline.'
+  - command: quest complete
+    level: 3
+    syntax: '.quest complete #questid'
+    description: 'Marks all objectives of the specified quest as completed for the target character. After this, the character can go and collect the quest reward.'
+  - command: notify
+    level: 1
+    syntax: '.notify $MessageToBroadcast'
+    description: 'Sends a global message to all players online on their screen.'
+  - command: npc add
+    level: 2
+    syntax: '.npc add #creatureid'
+    description: 'Spawns a creature using the given template ID of #creatureid.'
+  - command: npc additem
+    level: 2
+    syntax: '.npc additem #itemId <#maxcount><#incrtime>'
+    description: 'Adds item #itemid to the item list of the selected vendor. Optionally, set a maximum count for the item in the vendor’s inventory and the time it takes to restore item count.'
+  - command: quest remove
+    level: 3
+    syntax: '.quest remove #quest_id'
+    description: 'Sets the state of quest #quest_id to not completed and not active, removing it from the active quest list for the selected player.'
+  - command: npc aiinfo
+    level: 2
+    syntax: '.npc npc aiinfo'
+    description: 'Displays NPC AI and script information.'
+  - command: reload all
+    level: 3
+    syntax: '.reload all'
+    description: 'Reloads all tables with reload support that can be safely reloaded.'
+  - command: npc changelevel
+    level: 2
+    syntax: '.npc changelevel #level'
+    description: 'Changes the level of the selected creature to #level. #level may range from 1 to 63.'
+  - command: npc delete
+    level: 2
+    syntax: '.npc delete [#guid]'
+    description: 'Deletes the creature with GUID #guid, or the selected creature if no GUID is provided.'
+  - command: npc delitem
+    level: 2
+    syntax: '.npc delitem #itemId'
+    description: 'Removes item #itemid from the item list of the selected vendor.'
+  - command: npc factionid
+    level: 2
+    syntax: '.npc factionid #factionid'
+    description: 'Sets the faction of the selected creature to #factionid.'
+  - command: npc flag
+    level: 2
+    syntax: '.npc flag #npcflag'
+    description: 'Sets the NPC flags of the selected creature and its template to #npcflag. NPC flags will apply to all creatures of the selected template after a server restart or grid unload/load.'
+  - command: npc follow
+    level: 2
+    syntax: '.npc follow'
+    description: 'Makes the selected creature follow you until death, fight, or other specified conditions.'
+  - command: reload all_area
+    level: 3
+    syntax: '.reload all_area'
+    description: 'Reloads all `areatrigger_*` tables if reload support is added and the table can be safely reloaded.'
+  - command: npc move
+    level: 2
+    syntax: '.npc move [#creature_guid]'
+    description: 'Moves the targeted creature’s spawn point to your current coordinates.'
+  - command: npc name
+    level: 2
+    syntax: '.npc name $name'
+    description: 'Changes the name of the selected creature or character to $name. (Command disabled.)'
+  - command: reload all_eventai
+    level: 3
+    syntax: '.reload all_eventai'
+    description: 'Reloads `creature_ai_*` tables if reload support is added and if the tables can be safely reloaded.'
+  - command: npc say
+    level: 1
+    syntax: '.npc say #text'
+    description: 'Makes the selected NPC say #text.'
+  - command: npc setdeathstate
+    level: 2
+    syntax: '.npc setdeathstate on/off'
+    description: 'Sets the default death state (dead/alive) for the NPC at spawn.'
+  - command: npc setmodel
+    level: 2
+    syntax: '.npc setmodel #displayid'
+    description: 'Changes the model ID of the selected creature to #displayid.'
+  - command: npc setmovetype
+    level: 2
+    syntax: '.npc setmovetype [#creature_guid] stay/random/way [NODEL]'
+    description: 'Sets the movement type for the creature pointed by #creature_guid (or selected if #creature_guid is not provided) and moves it to the respawn position (if the creature is alive). Existing waypoints will be removed unless NODEL is used. If the creature is dead, the movement type will be applied at respawn. Use NODEL to retain waypoints.'
+  - command: npc spawndist
+    level: 2
+    syntax: '.npc spawndist #dist'
+    description: 'Adjusts the spawn distance of the selected creature to #dist.'
+  - command: npc spawntime
+    level: 2
+    syntax: '.npc spawntime #time'
+    description: 'Adjusts the spawn time of the selected creature to #time.'
+  - command: npc subname
+    level: 2
+    syntax: '.npc subname $Name'
+    description: 'Changes the subname of the selected creature or player to $Name. (Command disabled.)'
+  - command: npc tame
+    level: 2
+    syntax: '.npc tame'
+    description: 'Tames the selected creature (tameable non-pet creature). You do not need to have a pet.'
+  - command: npc textemote
+    level: 1
+    syntax: '.npc textemote #emoteid'
+    description: 'Makes the selected creature perform a text emote with the emote of #emoteid.'
+  - command: npc unfollow
+    level: 2
+    syntax: '.npc unfollow'
+    description: 'Makes the selected creature (non-pet) stop following you.'
+  - command: npc whisper
+    level: 1
+    syntax: '.npc whisper #playerguid #text'
+    description: 'Makes the selected NPC whisper #text to the player with #playerguid.'
+  - command: npc yell
+    level: 1
+    syntax: '.npc yell #text'
+    description: 'Makes the selected NPC yell #text.'
+  - command: reload all_item
+    level: 3
+    syntax: '.reload all_item'
+    description: 'Reloads the `item_required_target`, `page_texts`, and `item_enchantment_template` tables.'
+  - command: reload all_locales
+    level: 3
+    syntax: '.reload all_locales'
+    description: 'Reloads all `locales_*` tables with reload support added, ensuring they can be safely reloaded.'
+  - command: pinfo
+    level: 2
+    syntax: '.pinfo [$player_name]'
+    description: 'Outputs account information for the selected player or the player found by $player_name.'
+  - command: pool
+    level: 2
+    syntax: '.pool #pool_id'
+    description: 'Displays pool information and a full list of creatures and game objects included in the pool.'
+  - command: pool list
+    level: 2
+    syntax: '.pool list'
+    description: 'Lists pools with spawns in the current map. This only works in instances; non-instanceable maps share pool system state, making attempts to get all pools across continents useless.'
+  - command: pool spawns
+    level: 2
+    syntax: '.pool spawns #pool_id'
+    description: 'Lists current creatures and objects listed in pools (or in the specified #pool_id) that are spawned and added to grid data (does not necessarily mean they are shown in the world).'
+  - command: reload all_loot
+    level: 3
+    syntax: '.reload all_loot'
+    description: 'Reloads all `*_loot_template` tables. This can be a slow operation and may cause lag on the server.'
+  - command: reload all_npc
+    level: 3
+    syntax: '.reload all_npc'
+    description: 'Reloads `points_of_interest` and `npc_*` tables, if reload support is added and the tables can be safely reloaded.'
+  - command: reload all_quest
+    level: 3
+    syntax: '.reload all_quest'
+    description: 'Reloads all quest-related tables, if reload support is added and the tables can be safely reloaded.'
+  - command: reload all_scripts
+    level: 3
+    syntax: '.reload all_scripts'
+    description: 'Reloads the `dbscripts_on_*` tables.'
+  - command: recall
+    level: 1
+    syntax: '.recall [$playername]'
+    description: 'Teleports $playername (or the selected player) to the place they were before their last use of a teleportation command. If no $playername is entered and no player is selected, it will teleport you.'
+  - command: reload all_spell
+    level: 3
+    syntax: '.reload all_spell'
+    description: 'Reloads all `spell_*` tables that have reload support added and can be safely reloaded.'
+  - command: reload config
+    level: 3
+    syntax: '.reload config'
+    description: 'Reloads configuration settings (by default stored in mangosd.conf). Not all settings can be changed on reload; some new values will be ignored until a restart, some will be applied with delay or only to new objects/maps, and others may be explicitly rejected during reload.'
+  - command: reset all
+    level: 3
+    syntax: '.reset all [spells|talents]'
+    description: 'Requests a reset of spells or talents at the next login for each existing character.'
+  - command: reset honor
+    level: 3
+    syntax: '.reset honor [Playername]'
+    description: 'Resets all honor data for the targeted character.'
+  - command: reset level
+    level: 3
+    syntax: '.reset level [Playername]'
+    description: 'Resets the level to 1, including resetting stats and talents. Equipped items with higher level requirements may be lost.'
+  - command: reset spells
+    level: 3
+    syntax: '.reset spells [Playername]'
+    description: 'Removes all non-original spells from the spellbook of the targeted player. Playername can be an offline character name.'
+  - command: reset stats
+    level: 3
+    syntax: '.reset stats [Playername]'
+    description: 'Resets (recalculates) all stats for the targeted player to their original values at their current level.'
+  - command: reset talents
+    level: 3
+    syntax: '.reset talents [Playername]'
+    description: 'Removes all talents of the targeted player. Playername can be an offline character name.'
+  - command: respawn
+    level: 3
+    syntax: '.respawn'
+    description: 'Respawns the selected creature or respawns all nearest creatures (if none are selected), including game objects, without waiting for the respawn time to expire.'
+  - command: revive
+    level: 3
+    syntax: '.revive'
+    description: 'Revives the selected player. If no player is selected, it will revive you.'
+  - command: send items
+    level: 3
+    syntax: '.send items #playername #subject #text itemid1[:count1] itemid2[:count2] ... itemidN[:countN]'
+    description: 'Sends a mail to a player. The subject and mail text must be enclosed in quotes. If no count is provided for an item, the default is 1. If the count exceeds the max stack size, the items will be sent in the required number of stacks. All stacks in the mail are limited to 12.'
+  - command: repairitems
+    level: 2
+    syntax: '.repairitems'
+    description: 'Repairs all items of the selected player.'
+  - command: send mass items
+    level: 3
+    syntax: '.send mass items #racemask|$racename|alliance|horde|all _#subject_ _#text_ itemid1[:count1] itemid2[:count2] ... itemidN[:countN]'
+    description: 'Sends a mail to players. Subject and mail text must be enclosed in quotes. If no count is provided for an item, the default is 1. If the count exceeds the max stack size, the items will be sent in the required number of stacks. The number of stacks in the mail is limited to 12.'
+  - command: send mass mail
+    level: 3
+    syntax: '.send mass mail #racemask|$racename|alliance|horde|all _#subject_ _#text_'
+    description: 'Sends a mail to players. Subject and mail text must be enclosed in quotes.'
+  - command: send mass money
+    level: 3
+    syntax: '.send mass money #racemask|$racename|alliance|horde|all _#subject_ _#text_ #money'
+    description: 'Sends a mail with money to players. Subject and mail text must be enclosed in quotes.'
+  - command: send message
+    level: 3
+    syntax: '.send message $playername $message'
+    description: 'Sends a screen message to the player from ADMINISTRATOR.'
+  - command: send money
+    level: 3
+    syntax: '.send money #playername #subject #text #money'
+    description: 'Sends a mail with money to a player. Subject and mail text must be enclosed in quotes.'
+  - command: server idlerestart
+    level: 3
+    syntax: '.server idlerestart #delay'
+    description: 'Restarts the server after #delay seconds if no active connections are present (no players). Use #exist_code or 2 as the program exit code.'
+  - command: server idlerestart cancel
+    level: 3
+    syntax: '.server idlerestart cancel'
+    description: 'Cancels the restart/shutdown timer if any.'
+  - command: server idleshutdown
+    level: 3
+    syntax: '.server idleshutdown #delay [#exist_code]'
+    description: 'Shuts the server down after #delay seconds if no active connections are present (no players). Use #exist_code or 0 as the program exit code.'
+  - command: save
+    level: 0
+    syntax: '.save'
+    description: 'Saves your character.'
+  - command: saveall
+    level: 1
+    syntax: '.saveall'
+    description: 'Saves all characters in the game.'
+  - command: server idleshutdown cancel
+    level: 3
+    syntax: '.server idleshutdown cancel'
+    description: 'Cancels the restart/shutdown timer if any.'
+  - command: send mail
+    level: 1
+    syntax: '.send mail #playername #subject__ __#text__'
+    description: 'Sends a mail to a player. Subject and mail text must be enclosed in quotes.'
+  - command: server plimit
+    level: 3
+    syntax: '.server plimit [#num|-1|-2|-3|reset|player|moderator|gamemaster|administrator]'
+    description: 'Without arguments, shows the current player amount and security level limitations for logging into the server. With an argument, sets the player limit (#num > 0) or security limitation (#num < 0 or security level name). Use `reset` to set the player limit to the one specified in the config file.'
+  - command: server restart
+    level: 3
+    syntax: '.server restart #delay'
+    description: 'Restarts the server after #delay seconds. Use #exist_code or 2 as the program exit code.'
+  - command: server restart cancel
+    level: 3
+    syntax: '.server restart cancel'
+    description: 'Cancels the restart/shutdown timer if any.'
+  - command: server set motd
+    level: 3
+    syntax: '.server set motd $MOTD'
+    description: 'Sets the server Message of the Day (MOTD).'
+  - command: server shutdown
+    level: 3
+    syntax: '.server shutdown #delay [#exit_code]'
+    description: 'Shuts the server down after #delay seconds. Use #exit_code or 0 as the program exit code.'
+  - command: server corpses
+    level: 2
+    syntax: '.server corpses'
+    description: 'Triggers the corpse expiration check in the world.'
+  - command: server shutdown cancel
+    level: 3
+    syntax: '.server shutdown cancel'
+    description: 'Cancels the restart/shutdown timer if any.'
+  - command: setskill
+    level: 3
+    syntax: '.setskill #skill #level [#max]'
+    description: 'Sets a skill with ID #skill to the current skill value of #level and a maximum value of #max (or equal to the current maximum if not provided) for the selected character. If no character is selected, you learn the skill.'
+  - command: showarea
+    level: 3
+    syntax: '.showarea #areaid'
+    description: 'Reveals the area with ID #areaid to the selected character. If no character is selected, reveals the area to you.'
+  - command: stable
+    level: 3
+    syntax: '.stable'
+    description: 'Shows your pet stable.'
+  - command: tele add
+    level: 3
+    syntax: '.tele add $name'
+    description: 'Adds your current position to the `.tele` command target locations list with the name $name.'
+  - command: server info
+    level: 0
+    syntax: '.server info'
+    description: 'Displays the server version and the number of connected players.'
+  - command: tele del
+    level: 3
+    syntax: '.tele del $name'
+    description: 'Removes the location with name $name from the `.tele` command locations list.'
+  - command: unaura
+    level: 3
+    syntax: '.unaura #spellid'
+    description: 'Removes the aura applied by spell #spellid from the selected unit.'
+  - command: server motd
+    level: 0
+    syntax: '.server motd'
+    description: 'Displays the server Message of the Day (MOTD).'
+  - command: unban account
+    level: 3
+    syntax: '.unban account $Name'
+    description: 'Unbans accounts that match the given account name pattern.'
+  - command: unban character
+    level: 3
+    syntax: '.unban character $Name'
+    description: 'Unbans characters that match the given character name pattern.'
+  - command: unban ip
+    level: 3
+    syntax: '.unban ip $Ip'
+    description: 'Unbans accounts associated with the given IP pattern.'
+  - command: unlearn
+    level: 3
+    syntax: '.unlearn #spell [all]'
+    description: 'Unlearns the spell #spell for the selected player. If "all" is provided, all ranks of the spell are unlearned.'
+  - command: wchange
+    level: 3
+    syntax: '.wchange #weathertype #status'
+    description: 'Sets the current weather to #weathertype with an intensity of #status. #weathertype can be 1 for rain, 2 for snow, or 3 for sand. #status can be 0 to disable or 1 to enable the weather.'
+  - command: wp export
+    level: 3
+    syntax: '.wp export [#creature_guid or Select a Creature] $filename'
+    description: 'Exports the creature waypoints to the specified file.'
+  - command: account create
+    level: 4
+    syntax: '.account create $username $password'
+    description: 'Creates a new account with the given $username and $password.'
+  - command: account delete
+    level: 4
+    syntax: '.account delete $username'
+    description: 'Deletes the account with the given $username.'
+  - command: account onlinelist
+    level: 4
+    syntax: '.account onlinelist'
+    description: 'Displays a list of currently active accounts.'
+  - command: start
+    level: 0
+    syntax: '.start'
+    description: 'Teleports you to the starting area of your character.'
+  - command: taxicheat
+    level: 1
+    syntax: '.taxicheat on/off'
+    description: 'Temporarily grants access to all taxi routes for the selected character. If no character is selected, it toggles access for your character. Visited taxi nodes remain accessible after access is removed.'
+  - command: tele
+    level: 1
+    syntax: '.tele #location'
+    description: 'Teleports the player to the specified location.'
+  - command: account set gmlevel
+    level: 4
+    syntax: '.account set gmlevel [#accountId|$accountName] #level'
+    description: 'Sets the access level for a given account ID, username, or the account of a targeted character. #level may range from 0 to 3.'
+  - command: account set password
+    level: 4
+    syntax: '.account set password (#accountId|$accountName) $password $password'
+    description: 'Changes the account password for an account ID or username to $password.'
+  - command: tele group
+    level: 1
+    syntax: '.tele group #location'
+    description: 'Teleports the selected player and their group members to the specified location.'
+  - command: tele name
+    level: 1
+    syntax: '.tele name [#playername] #location'
+    description: 'Teleports the specified character to a given location. The character can be offline.'
+  - command: ticket
+    level: 2
+    syntax: '.ticket on .ticket off .ticket #num .ticket $character_name .ticket respond #num $response .ticket respond $character_name $response'
+    description: 'Enables or disables the display of a new ticket for GMs. Use $character_name to show tickets for that character, or #num to show ticket #num.'
+  - command: trigger
+    level: 2
+    syntax: '.trigger [#trigger_id|$trigger_shift-link|$trigger_target_shift-link]'
+    description: 'Shows detailed information about an area trigger with ID #trigger_id or a trigger ID associated with a shift-link. If no area trigger ID or shift-link is provided, it shows the nearest area trigger at the current map.'
+  - command: trigger active
+    level: 2
+    syntax: '.trigger active'
+    description: 'Shows a list of active area triggers with activation zones, including the current character’s position.'
+  - command: trigger near
+    level: 2
+    syntax: '.trigger near [#distance]'
+    description: 'Displays area triggers within #distance of the player. If #distance is not provided, 10 is used as the default value.'
+  - command: character deleted delete
+    level: 4
+    syntax: '.character deleted delete #guid|$name'
+    description: 'Completely deletes the selected character. If $name is provided, only characters with that string in their name will be deleted. If #guid is provided, only the character with that GUID will be deleted.'
+  - command: character deleted old
+    level: 4
+    syntax: '.character deleted old [#keepDays]'
+    description: 'Completely deletes all characters with a deletion time longer than #keepDays. If #keepDays is not provided, the value from the mangosd.conf option CharDelete.KeepDays is used. If this config option is disabled (set to 0), the command cannot be used without specifying #keepDays.'
+  - command: character erase
+    level: 4
+    syntax: '.character erase $name'
+    description: 'Deletes the character $name. The character is permanently deleted after the specified deletion options.'
+  - command: quit
+    level: 4
+    syntax: 'quit'
+    description: 'Closes the RA connection. The command must be typed fully as "quit".'
+  - command: server exit
+    level: 4
+    syntax: '.server exit'
+    description: 'Terminates the mangosd process immediately with exit code 0.'
+  - command: unmute
+    level: 1
+    syntax: '.unmute $playerName'
+    description: 'Restores chat messaging for any character from the account of character $playerName.'
+  - command: waterwalk
+    level: 2
+    syntax: '.waterwalk on/off'
+    description: 'Sets the waterwalk state to on or off for the selected player.'
+  - command: server log filter
+    level: 4
+    syntax: '.server log filter [($filtername|all) (on|off)]'
+    description: 'Shows or sets the server log filters. If "all" is used, all filters will be set to the specified on/off state.'
+  - command: whispers
+    level: 1
+    syntax: '.whispers on|off'
+    description: 'Enables or disables accepting whispers from players by GM. By default, uses the setting in mangosd.conf.'
+  - command: wp add
+    level: 2
+    syntax: '.wp add [Selected Creature or dbGuid] [pathId [wpOrigin]]'
+    description: 'Adds a waypoint for a creature.'
+  - command: server log level
+    level: 4
+    syntax: '.server log level [#level]'
+    description: 'Shows or sets the server log level. Levels are: 0 - errors only, 1 - basic, 2 - detailed, 3 - debug.'
+  - command: wp modify
+    level: 2
+    syntax: '.wp modify command [dbGuid,id] [value]'
+    description: 'Modifies a waypoint based on the given command. Commands include: waittime (Set wait time in ms), scriptid (Set DB-Script to execute at waypoint), orientation (Set orientation), del (Remove waypoint), move (Move waypoint to the player’s current position).'
+  - command: wp show
+    level: 2
+    syntax: '.wp show command [dbGuid] [pathId [wpOrigin]]'
+    description: 'Shows waypoints for the selected command. Available commands: on (show all), first (show first), last (show last), off (hide all), info (show additional information about waypoints). Use pathId and wpOrigin to specify the path.'
