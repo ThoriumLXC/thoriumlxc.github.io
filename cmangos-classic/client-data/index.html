@@ -3459,19 +3459,19 @@
 <p>Alternatively, you may receive already extracted client data in the form of a container image. This is a container image that when run will copy the client data files into a directory or named volume. This container works by running a decompression program (7zip, unzip), writing the extracted files to a specified directory.</p>
 <p>These images may be downloaded using <code>docker pull</code>, or downloaded by other means and loaded into docker by running the command: <code>docker load &lt; cmangos-classic-extracted-client-data.tar</code>.</p>
 <p>Running one of these container images to extract files to a named volume called <code>cmangos-classic-map-data</code> works like so:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-classic-map-data:/output<span class="w"> </span>cmangos-classic-extracted-client-data
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-classic-map-data:/target<span class="w"> </span>cmangos-classic-extracted-client-data
 </code></pre></div>
 <details class="tip">
 <summary>Tip</summary>
 <p>Alternatively you can extract these files to a folder on your machine, by running the modified variant of the above command as:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>./client-data:/output<span class="w"> </span>cmangos-classic-extracted-client-data
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>./client-data:/target<span class="w"> </span>cmangos-classic-extracted-client-data
 </code></pre></div>
 </details>
 <p>You may persist your own extracted client data by creating one of these images, but that is outside the scope of this guide.</p>
 <p>Should you do so, you will be able to create &amp; populate the named volume using the following commands:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>load<span class="w"> </span>&lt;<span class="w"> </span>cmangos-classic-map-data.tar.gz
 docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>cmangos-classic-map-data
-docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-classic-map-data:/output<span class="w"> </span>cmangos-classic-map-data
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>cmangos-classic-map-data:/target<span class="w"> </span>cmangos-classic-map-data
 </code></pre></div>
 
 
